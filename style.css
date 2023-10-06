@@ -14,7 +14,7 @@ body{
 }
 
 .container{
-    border: 2px solid darkred;
+    /* border: 2px solid darkred; */
     width: 300px;
     height: 300px;
     display: flex;

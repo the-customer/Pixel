@@ -38,9 +38,19 @@ for (let i = 0; i < 2499; i++) {
         // copySquare.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
         copySquare.style.backgroundColor = `rgb(${r},${g},${b})`;
         //
-        setTimeout(function(){
-            copySquare.style.backgroundColor = 'inherit';
-        },1000);
+        const interval = setInterval(function(){
+            if(!copySquare.style.opacity){//s'il n y a pas d'opacity
+                copySquare.style.opacity = 1;
+            }
+            //
+            if(copySquare.style.opacity > 0){ //on voit encore l'element
+                copySquare.style.opacity -= 0.1; //diminuer l'opacity
+            }else{
+                copySquare.style.opacity = 1;
+                clearInterval(interval);
+                copySquare.style.backgroundColor = 'inherit';
+            }
+        },50);
     });
     
     //Coller (ajouter) la copie dans le container
@@ -125,3 +135,7 @@ console.log('titi toto tata');
 // // })
 // btn.addEventListener('click',doSomeThing);
 // console.dir(divSquare);
+
+// btn.addEventListener('click',function(){
+//     divContainer.style.opacity = 0.5;
+// })
